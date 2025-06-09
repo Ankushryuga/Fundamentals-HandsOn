@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: two-containers
+spec:
+  restartPolicy: Always
+  containers:
+  # Container 1
+  - name: mynginx
+    image: nginx
+    ports:
+      - containerPort: 80
+  # Container 2
+  - name: mybox
+    image: busybox
+    ports:
+      - containerPort:81
+    command: 
+      - sleep
+      - "3600"
